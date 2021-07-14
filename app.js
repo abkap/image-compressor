@@ -1,12 +1,13 @@
 const sharp = require("sharp");
 const fs = require("fs");
 const reqDir = "./result";
+// create 'result' folder if it doesn't exist
 if (!fs.existsSync(reqDir)) {
   fs.mkdirSync(reqDir);
   console.log("result folder created");
 }
 
-fs.file;
+// resize func
 function resizeImage({ inputFile, width, height, quality, namePrefix }) {
   var filetypeList = inputFile.split(".");
   var filetype = filetypeList[filetypeList.length - 1];
@@ -21,6 +22,7 @@ function resizeImage({ inputFile, width, height, quality, namePrefix }) {
       console.log(data);
     });
 }
+
 // user input
 const readline = require("readline").createInterface({
   input: process.stdin,
@@ -54,6 +56,7 @@ var getHeight = async () => {
   });
 };
 
+// main func
 async function run() {
   try {
     var inputFile = await getName();
@@ -64,6 +67,7 @@ async function run() {
     console.log("plese provide information  ! ");
     run();
   }
+  // change initializer and increment by some value to increase the count of result with different size
 
   for (var i = 10; i < 100; i += 10)
     resizeImage({
@@ -75,6 +79,7 @@ async function run() {
     });
 }
 
+// execute run() method
 run();
 
 //   end
